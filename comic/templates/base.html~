@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>Music Site</title>
+  
+<style type="text/css" media="all">
+		@import "style.css";
+	</style>
+</head>
+
+<body>
+<div id="farouter">
+<div id="outer">
+<div id="wrap">
+<div id="headermain">
+
+<h1 id="header">Music site</h1>
+<h2 id="tagline">Open your music world</h2>
+
+</div>
+
+<div id="hmenu">
+<div id="hnav">
+
+<ul id="navlist">
+<li><a href="">Home</a></li>
+<li><a href="">News</a></li>
+<li><a href="">About Us</a></li>
+<li><a href="">Contact Us</a></li>
+<li><a href="">Links</a></li>
+</ul>
+
+
+</div></div>
+
+
+<div id="main">
+
+
+
+<div id="content">
+
+<div id="nav">
+
+
+ <div id="class1"><h4>Lorem Ipsum</h4>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+<h4>Many desktop</h4>
+
+
+ </div>
+
+
+	
+
+ 	<div>
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br/><br/>
+<small style="color:#999999">Copyright © 2005<br> All Rights Reserved 
+</small>
+	
+ </div>
+</div>
+<div style="width:500px">
+
+
+<h4>Welcome</h4>
+
+<p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+<h4>Lorem Ipsum</h4>
+
+<p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.
+</p>
+
+
+
+
+
+<br/>
+
+
+</div>
+
+
+</div>
+</div>
+<div id="menu">
+
+
+
+
+
+</div>
+
+<div id="clearer">&nbsp;</div>
+<div id="footer">
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
