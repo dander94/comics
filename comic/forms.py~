@@ -9,4 +9,8 @@ class CollectionForm(forms.ModelForm):
 class LocationForm(forms.ModelForm):
 	class Meta:
 		model = Location
-		fields = ('nombre')
+		fields = ('nombre',)
+class ComicForm(forms.ModelForm):
+	class Meta:
+		model = Comic
+		fields = ('nombre','coleccion','numero_en_coleccion','localizacion',)

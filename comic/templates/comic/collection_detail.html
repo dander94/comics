@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load staticfiles %}
+<link href="{% static 'comic/tablas.css' %}" rel="stylesheet" type="text/css" media="all" />
+<h1>Colección: {{collection}}</h1>
+
+<div id="form_com"><form action="{% url 'comics:collection' %}{{collection.id}}/create/" method="POST" >
+
+ {% csrf_token %}
+	<table id="tabla_formulario">
+		<tr><td>Añadir nuevo comic</td></tr>
+		<tr><td>
+			{% if messages %}
+    				{% for message in messages %}
+   					 <span style="color:red;font-weight:bold">{{ message }}</span><br/>
+    				{% endfor %}
+			{% endif %}
+			<input type="hidden" name="collection" value="{{collection.id}}"/> 			
+			{{form.as_p}}
+			<input type="submit" value="Crear"></table></td></tr>	
+
+</form>
+<br/>
+<table id="tabla_formulario">
+		<tr><td>Comics de la coleccion</td></tr>
+</table>
+{% if collection.comic_set.all %}
+	<table id="tabla_formulario">
+		<tr><td>Nombre</td><td>Número</td><td>Localización</td></tr>
+	{% for comic in collection.comic_set.all %}
+		<tr>	
+		<td>{{comic.nombre}}</td><td>{{comic.numero_en_coleccion}}</td><td>{{comic.localizacion}}</td>
+		</tr>
+	{% endfor %}
+		
+	</table>
+{% else %}
+	<p>No tienes comics de esta colección.</p>
+{% endif %}
+</div>
+{%endblock %}
+
+

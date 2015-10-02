@@ -12,19 +12,20 @@
 		<tr><td>
 			{% if messages %}
     				{% for message in messages %}
-   					 <p style="text-color:red"><span style="color:red;font-weight:bold">{{ message }}</span></p>
+   					 <span style="color:red;font-weight:bold">{{ message }}</span><br/>
     				{% endfor %}
 			{% endif %}			
 			{{form.as_p}}
 			<input type="submit" value="Crear"></table></td></tr>	
 
 </form>
+<br/>
 {% if collection_list %}
 	<table id="tabla_formulario">
 		<tr><td>Colecciones creadas</td></tr>
 	{% for collection in collection_list %}
 		<tr>	
-		<td>{{collection.nombre}}({{collection.comic_set.all|length}}/{{collection.numeros_totales}})</td>
+		<td><a href="{% url 'comics:collection' %}{{collection.id}}">{{collection.nombre}}&nbsp;({{collection.comic_set.all|length}}/{{collection.numeros_totales}})</a></td>
 		</tr>
 	{% endfor %}
 		

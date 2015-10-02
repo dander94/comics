@@ -10,3 +10,7 @@ class LocationForm(forms.ModelForm):
 	class Meta:
 		model = Location
 		fields = ('nombre',)
+class ComicForm(forms.ModelForm):
+	class Meta:
+		model = Comic
+		fields = ('nombre','numero_en_coleccion','localizacion',)

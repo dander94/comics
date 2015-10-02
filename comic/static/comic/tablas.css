@@ -3,7 +3,6 @@ p {
 }
 #tabla_formulario {
 	margin:0px;padding:0px;
-	margin-top:10px;
 	width:100%;
 	box-shadow: 10px 10px 5px #888888;
 	border:1px solid #000000;
@@ -53,13 +52,13 @@ p {
 
 	
 #tabla_formulario tr:nth-child(odd){ background-color:#aad4ff; }
-#tabla_formulario tr:nth-child(even)    { background-color:#ffffff; }#tabla_formulario td{
+#tabla_formulario tr:nth-child(even)    { background-color:#ffffff; }
+#tabla_formulario td{
 	vertical-align:middle;
-	
-	
 	border:1px solid #000000;
 	border-width:0px 1px 1px 0px;
 	text-align:left;
+	padding-right:20px;
 	padding:7px;
 	font-size:15px;
 	font-family:Arial;

@@ -6,7 +6,7 @@ from .models import Location, Collection, Comic
 from django.views import generic
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
-from .forms import CollectionForm,LocationForm
+from .forms import CollectionForm,LocationForm, ComicForm
 from django.contrib import messages
 
 def index(request):
@@ -46,6 +46,32 @@ def crear_coleccion(request):
 		else:
 			messages.add_message(request, messages.ERROR, 'Rellene el formulario correctamente')
 		return HttpResponseRedirect(reverse('comics:collection',args=()))
+
+
+def crear_comic(request,pk):
+	try:	
+		form = ComicForm(request.POST)
+		id_col = pk
+		nombre_nv = request.POST['nombre']
+		numero_nv= request.POST['numero_en_coleccion']
+		loc_nv = request.POST['localizacion']
+		print(loc_nv)
+	except (KeyError):
+		print("MEC");
+		return render(request,'comic/collection.html');
+	else:
+		if form.is_valid():
+			if Collection.objects.all().get(id=id_col).comic_set.count() != Collection.objects.all().get(id=id_col).numeros_totales:
+				comic=Comic(nombre=nombre_nv,numero_en_coleccion=numero_nv)
+				comic.coleccion_id=id_col;
+				comic.localizacion_id=loc_nv
+				comic.save()
+			else:
+				messages.add_message(request, messages.ERROR, 'La coleccion está completa')
+		else:
+			messages.add_message(request, messages.ERROR, 'Rellene el formulario correctamente')
+
+	return HttpResponseRedirect(reverse('comics:col_detail',kwargs={'pk':pk}))
 		
 
 class LocationView(generic.ListView):
@@ -67,6 +93,16 @@ class CollectionView(generic.ListView):
 		return Collection.objects.order_by('nombre')
 	def get_context_data(self, *args, **kwargs):
 		context = super(CollectionView,self).get_context_data( *args, **kwargs)
+		context['form']=self.form;
+		return context
+
+class CollectionDetailView(generic.DetailView):
+	template_name ='comic/collection_detail.html'
+	form = ComicForm();
+	model=Collection
+	
+	def get_context_data(self, *args, **kwargs):
+		context = super(CollectionDetailView,self).get_context_data( *args, **kwargs)
 		context['form']=self.form;
 		return context
 	

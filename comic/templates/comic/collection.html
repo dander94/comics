@@ -4,7 +4,7 @@
 <link href="{% static 'comic/tablas.css' %}" rel="stylesheet" type="text/css" media="all" />
 <h1>Colecciones</h1>
 
-<div id="form_loc"><form action="{% url 'comics:create_col' %}" method="POST" >
+<div id="form_com"><form action="{% url 'comics:create_col' %}" method="POST" >
 
  {% csrf_token %}
 	<table id="tabla_formulario">
@@ -19,12 +19,13 @@
 			<input type="submit" value="Crear"></table></td></tr>	
 
 </form>
+<br/>
 {% if collection_list %}
 	<table id="tabla_formulario">
 		<tr><td>Colecciones creadas</td></tr>
 	{% for collection in collection_list %}
 		<tr>	
-		<td>{{collection.nombre}}({{collection.comic_set.all|length}}/{{collection.numeros_totales}})</td>
+		<td><a href="{% url 'comics:collection' %}{{collection.id}}">{{collection.nombre}}&nbsp;({{collection.comic_set.all|length}}/{{collection.numeros_totales}})</a></td>
 		</tr>
 	{% endfor %}
 		
