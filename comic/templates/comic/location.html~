@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load staticfiles %}
+<link href="{% static 'comic/tablas.css' %}" rel="stylesheet" type="text/css" media="all" />
+<h1>Localizaciones</h1>
+<div id="form_loc"><form action="{% url 'comics:create_loc' %}" method="POST" >
+<p>
+ {% csrf_token %}
+	<table id="tabla_formulario">
+		<tr>	
+			<td>Crear localización</td>
+		</tr>	
+		<tr>
+			<td><table border=0>
+				<tr>
+				<td><label>Nombre:</label></td><td><input required="required" type="text" name="nombre" id="nombre_form_text" style="width:90%"/></td>
+				<td><input class="form_button" type="submit" value="Crear" /></td>
+				</tr>
+			</table>
+			
+			</td>
+		</tr>
+		</table>
+</p>
+</form>
+{% if location_list %}
+	<table id="tabla_formulario">
+		<tr><td>Localizaciones creadas</td></tr>
+	{% for location in location_list %}
+		<tr>	
+		<td>{{location.nombre}}</td>
+		</tr>
+	{% endfor %}
+		
+	</table>
+{% else %}
+	<p>No hay localizaciones creadas.</p>
+{% endif %}
+</div>
+{%endblock %}
+
+

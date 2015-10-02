@@ -40,7 +40,7 @@ footer {
 	margin-right: 10%;
 	display:fixed;
 	overflow: hidden;
-	
+	font-size: large;
 }
 	
 

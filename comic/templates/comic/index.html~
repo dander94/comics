@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'comic/botones.css' %}" />
+<h1>¡Bienvenido a tu organizador de comics!<h2><br/>
+<p> Elige que deseas hacer a continuación</p>
+<a href="" class="botonTurquesa">Colecciones</a>
+<a href="/location" class="botonTurquesa">Localización</a>
+{% endblock %}
