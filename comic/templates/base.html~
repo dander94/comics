@@ -10,11 +10,12 @@
 
 <body>
 
-<header><div id="header_div" align="center"><img id="logo" src="{% static 'comic/images/header.png' %}"/></div></header>
+<header><div id="header_div" align="center"><a href="/"><img id="logo" src="{% static 'comic/images/header.png' %}"/></a></div></header>
 <article ><div id="contenido">
 
-{% block content %}
+{% block content1 %}
 {%endblock%}
+
 
 
 </div>

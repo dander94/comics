@@ -1,4 +1,5 @@
-.tabla2 table{
+p {
+	display:inline-block;
 }
 #tabla_formulario {
 	margin:0px;padding:0px;

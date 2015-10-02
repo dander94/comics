@@ -5,6 +5,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'comic/botones.css' %}" />
 <h1>¡Bienvenido a tu organizador de comics!<h2><br/>
 <p> Elige que deseas hacer a continuación</p>
-<a href="http://google.com" class="botonTurquesa">Colecciones</a>
+<a href="{% url 'comics:collection' %}" class="botonTurquesa">Colecciones</a>
 <a href="{% url 'comics:location' %}" class="botonTurquesa">Localización</a>
 {% endblock %}

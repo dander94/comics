@@ -8,7 +8,7 @@ class Location(models.Model):
 		return self.nombre
 
 class Collection(models.Model):
-	nombre=models.CharField(max_length=100)
+	nombre=models.CharField(max_length=100,blank=False,null=False)
 	numeros_totales=models.IntegerField(default=0)
 	def __str__(self):
 		return self.nombre
