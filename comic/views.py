@@ -1,13 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
 
 from .models import Location, Collection, Comic
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from .forms import CollectionForm,LocationForm, ComicForm
 from django.contrib import messages
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from .serializers import ComicSerializer
+
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content into JSON.
+    """
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
 
 def index(request):
 	
@@ -106,5 +119,35 @@ class CollectionDetailView(generic.DetailView):
 		context['form']=self.form;
 		return context
 	
-
+@csrf_exempt
+def comic_list(request):
+	if request.method=='GET':
+		comics = Comic.objects.all()
+		serializer = ComicSerializer(comics, many=True)
+		return JSONResponse(serializer.data)
+	elif request.method == 'POST':
+		data = JSONParser().parse(request)
+		serializer = ComicSerializer(data=data)
+		if serializer.is_valid():
+			serializer.save()
+			return JSONResponse(serializer.data, status=201)
+		return JSONResponse(serializer.errors, status=400)
 	
+
+@csrf_exempt
+def comic_detail(request,pk, format=None):
+	comic = get_object_or_404(Comic, id=pk)
+	if request.method == 'GET':
+		serializer = ComicSerializer(comic)
+		return JSONResponse (serializer.data)
+	elif request.method == 'PUT':
+		data = JSONParser().parse(request)
+		serializer = ComicSerializer(comic, data=data)
+		if serializer.is_valid():
+			serializer.save()
+			return JSONResponse(serializer.data)
+		return JSONResponse(serializer.errors, status=400)
+	elif request.method == 'DELETE':
+		comic.delete()
+		return HttpResponse(status=204)	
+		

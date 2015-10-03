@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from comic.viewsets import ComicViewSet
+from rest_framework.routers import DefaultRouter
+
+router= DefaultRouter()
+router.register(r'comic', ComicViewSet);
+
+
 urlpatterns = [
 	url(r'^',include('comic.urls' ,namespace="comics")),
     url(r'^admin/', include(admin.site.urls))
