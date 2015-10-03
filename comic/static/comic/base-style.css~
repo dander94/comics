@@ -1,48 +1,50 @@
+
 body {
-	 background: black url("images/arkham.png");
-	background-size: cover;
-    background-attachment: fixed;
+    background: black url("images/arkham.png") repeat fixed 0 0 / cover ;
 }
-#logo{
-	max-width:100%;
-	max-height:100%;
+#logo {
+    max-height: 100%;
+    max-width: 100%;
 }
-#header_div{
-	width: 70%;
-	margin-left:15%;
-	margin-right:15%;
+#header_div {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
 }
 article {
-	background: rgba(255,255,255,0.7);
-	text-align: center;
-	margin-left:10%;
-	margin-right:10%;
-	padding-top: 10px;
-	padding-bottom:10%;
-	border: 3px solid lightgrey;
-	border-radius: 10px;	
+    background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;
+    border: 3px solid lightgrey;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 7%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
 }
 footer {
-	background: rgba(0,0,0,0.8);
-	text-align:center;
-	padding-top:10px;
-	color:white;
-	font-weight:bold;
-	bottom:0px;
-	left:0px;
-	position:fixed;
-	height: 5%;
-	width:100%;
-	margin-left:0px;
+    font-family:Comic Sans;
+    background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+    bottom: 0;
+    color: white;
+    font-weight: bold;
+    height: 5%;
+    left: 0;
+    margin-left: 0px;
+    position:fixed;
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
 }
-#form_loc{
-	margin-left: 10%;
-	margin-right: 10%;
-	display:fixed;
-	overflow: hidden;
-	font-size: large;
+#form_loc {
+    margin-left: 10%;
+    margin-right: 10%;
+    overflow: hidden;
 }
-	
+.form_button {
+    margin-right: 0;
+}
 
 .form_button{
 	margin-right:0px;
